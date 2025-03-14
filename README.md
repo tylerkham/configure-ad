@@ -93,3 +93,52 @@ This tutorial outlines the implementation of on-premises Active Directory within
 <p>The output for the DNS settings should show DC-1’s private IP Address</p>
 
 ![{1099C741-92BB-4284-AD5B-D7136DA0FC42}](https://github.com/user-attachments/assets/baa105bb-3be3-41a7-a8a0-70e4be1cdab3)
+
+<h3>Install Active Directory</h3>
+
+<p>Login to DC-1 and install Active Directory Domain Services</p>
+
+![{8FC6EED0-1D62-43C3-9500-3858BD7ACF68}](https://github.com/user-attachments/assets/6a9936bf-d155-482a-a675-492464a3277a)
+
+<p>Promote as a DC: Setup a new forest as mydomain.com (can be anything, just remember what it is)</p>
+
+![{DA4A18CD-240E-49BD-843A-DC218B3B5F98}](https://github.com/user-attachments/assets/4fb4d3d7-6798-4465-96cb-180ef952d651)
+
+<p>Restart and then log back into DC-1 as user: mydomain.com\labuser</p>
+
+<h3>Create a Domain Admin user within the domain</h3>
+
+<p>In Active Directory Users and Computers (ADUC), create an Organizational Unit (OU) called “_EMPLOYEES”</p>
+
+![{8BD16D08-837F-4BBB-BE28-FFD180DCB548}](https://github.com/user-attachments/assets/88e7762b-4ebc-4316-a6e9-8953d6f6a592)
+
+<p>Create a new OU named “_ADMINS”</p>
+
+![{29B3A62E-182D-4197-B2C9-3AEEDEACB704}](https://github.com/user-attachments/assets/41bdb35d-7a1a-431f-9b7f-1cb845d1fdf5)
+
+<p>Create a new employee named “Jane Doe” (same password) with the username of “jane_admin” / Cyberlab123!</p>
+
+![{C00B4AFA-86D5-4315-9536-31D85109FB6F}](https://github.com/user-attachments/assets/34b75cc9-df00-44c1-b653-4b4fe9d31b6f)
+
+<p>Add jane_admin to the “Domain Admins” Security Group</p>
+
+![{ADC15DE6-16BA-4F0B-B9F2-18BDB28E7F50}](https://github.com/user-attachments/assets/b370b2ed-f264-4d90-9d39-ad7c4e503067)
+
+<p>Log out / close the connection to DC-1 and log back in as “mydomain.com\jane_admin”</p>
+
+<p>User jane_admin as your admin account from now on</p>
+
+<h3>Join Client-1 to your domain (mydomain.com)</h3>
+
+<p>Login to Client-1 as the original local admin (labuser) and join it to the domain (computer will restart)</p>
+
+![{CBAE7F78-611B-4EB3-8A26-A22140B25023}](https://github.com/user-attachments/assets/c095048e-70b0-4dc6-a1b7-a79d9270fb0b)
+
+<p>Login to the Domain Controller and verify Client-1 shows up in ADUC</p>
+
+![{F0197D14-FFC3-48EC-B9C9-9EDF1FD90042}](https://github.com/user-attachments/assets/3d8af87a-7064-43ca-9229-367704cd8620)
+
+<p></p>Create a new OU named “_CLIENTS” and drag Client-1 into there</p>
+
+![{FACBBEA0-DF9F-4F34-8B9D-A4AAA6159B74}](https://github.com/user-attachments/assets/5f349693-cc20-499e-9d4c-a2e2aa1b378e)
+
